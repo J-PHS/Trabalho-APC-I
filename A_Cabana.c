@@ -6,9 +6,10 @@ int main()
 {
     setlocale(LC_ALL, "");
     int opcao_menu = 0;
-    int chave_got = 0;
+    int come_pao = 0;
     int game_on = 0;
     int alavanca_quebrada = 0;
+    int room1 = 0;
     enum opcoes_room1_e
     {
         chave = 1,
@@ -37,7 +38,6 @@ int main()
         printf("================================\n");
         printf("Escolha uma opção -> \n");
         scanf("%i", &opcao_menu);
-        // fgets(opcao_menu, sizeof(opcao_menu), stdin);
 
         while (getchar() != '\n')
             ; // limpar buffer, usar após os 'scanf' para limpar lixos e evitar problemas
@@ -46,10 +46,13 @@ int main()
         {
         case 1:
         {
+            game_on = 0;
+            alavanca_quebrada = 0;
+            come_pao = 0;
 
             while (game_on != 1)
             {
-                int room1 = 0;
+
                 system("clear");
                 printf("Você se encontra numa cabana. Diante de você existem 4 coisas.\n");
                 printf("Uma chave, uma alavanca, um pão, e uma porta.\n(ENTER para continuar)\n");
@@ -58,7 +61,6 @@ int main()
                 printf("%i- Chave\n%i- Alavanca\n%i- Pão\n%i- Porta\n\n%i- Sair do jogo\n\n", chave, alavanca, pao, porta, fecha_game);
                 printf("O que você escolhe?\n(Digite o número correspondente a opção.)\n");
                 scanf("%i", &room1);
-                // fgets(room1, sizeof(room1), stdin);
                 system("clear");
 
                 while (getchar() != '\n')
@@ -66,7 +68,7 @@ int main()
 
                 switch (room1)
                 {
-                    //  int chave = 0;
+    
                 case chave:
                 {
                     printf("Você se vê consumido pela vontade de comer esta chave.\n");
@@ -77,7 +79,7 @@ int main()
                     system("clear");
                     printf("GAME OVER\nPressione ENTER para encerrar.");
                     getchar();
-                    opcao_menu = 2;
+                   // opcao_menu = 2;
                     break;
                 }
                 case alavanca:
@@ -97,20 +99,20 @@ int main()
                 break;
                 case pao:
                 {
-                    if (chave_got == 1)
+                    if (come_pao == 1)
                     {
                         printf("Você já comeu o pão e encolheu, não pode comer de novo.\n");
                         getchar();
-                        chave_got = 2;
+                        come_pao = 2;
                     }
-                    else if (chave_got == 0)
+                    else if (come_pao == 0)
                     {
                         printf("Você come o pão.\nSeu corpo começa a encolher, você está virando um hobbit!\n");
                         printf("Você encolheu tanto que agora é possível passar pela fresta da porta e escapar!\n(Enter para continuar)\n");
                         getchar();
-                        chave_got = 1;
+                        come_pao = 1;
                     }
-                    else if (chave_got == 2)
+                    else if (come_pao == 2)
                     {
                         printf("Você insiste em comer o pão, você encolhe tanto que some!\n");
                         getchar();
@@ -118,13 +120,13 @@ int main()
                         system("clear");
                         printf("GAME OVER\nPressione ENTER para encerrar.");
                         getchar();
-                        opcao_menu = 2;
+                       // opcao_menu = 2;
                     }
                 }
                 break;
                 case porta:
                 {
-                    if (chave_got == 1)
+                    if (come_pao == 1)
                     {
                         printf("Você passa pela fresta debaixo da porta\n");
                         getchar();
@@ -180,7 +182,7 @@ int main()
                                 system("clear");
                                 printf("PARABÉNS! VOCÊ VENCEU!(Com todas as dívidas inclusas.)\nPressione ENTER para encerrar.");
                                 getchar();
-                                opcao_menu = 2;
+                              //  opcao_menu = 2;
                             }
                             break;
                             case batalha:
@@ -191,7 +193,7 @@ int main()
                                 system("clear");
                                 printf("GAME OVER\nPressione ENTER para encerrar.");
                                 getchar();
-                                opcao_menu = 2;
+                             //   opcao_menu = 2;
                             }
                             break;
                             case soco:
@@ -202,7 +204,7 @@ int main()
                                 system("clear");
                                 printf("GAME OVER\nPressione ENTER para encerrar.");
                                 getchar();
-                                opcao_menu = 2;
+                             //   opcao_menu = 2;
                             }
                             break;
                             default:
@@ -225,7 +227,7 @@ int main()
                             system("clear");
                             printf("GAME OVER\nPressione ENTER para encerrar.");
                             getchar();
-                            opcao_menu = 2;
+                          //  opcao_menu = 2;
                         }
                         break;
                         case xbox:
@@ -239,7 +241,7 @@ int main()
                             system("clear");
                             printf("GAME OVER\nPressione ENTER para encerrar.");
                             getchar();
-                            opcao_menu = 2;
+                          //  opcao_menu = 2;
                         }
                         break;
                         case pc:
@@ -259,7 +261,7 @@ int main()
                             system("clear");
                             printf("PARABÉNS! VOCÊ VENCEU!(Mais ou menos né, agora é só sobreviver aos zumbis.)\nPressione ENTER para encerrar.");
                             getchar();
-                            opcao_menu = 2;
+                          //  opcao_menu = 2;
                         }
                         break;
                         case fecha_game2:
@@ -268,7 +270,7 @@ int main()
                             system("clear");
                             printf("Até logo!\nPressione ENTER para encerrar.");
                             getchar();
-                            opcao_menu = 2;
+                          //  opcao_menu = 2;
                             break;
                         }
                         break;
@@ -284,17 +286,18 @@ int main()
                     else
                     {
                         printf("A porta está trancada.\n");
-                        break;
                         getchar();
+                        break;
                     }
                 }
+                break;
                 case fecha_game:
                 {
                     game_on = 1;
                     system("clear");
                     printf("Até logo!\nPressione ENTER para encerrar.");
                     getchar();
-                    opcao_menu = 2;
+                  //  opcao_menu = 2;
                     break;
                 }
                 default:
