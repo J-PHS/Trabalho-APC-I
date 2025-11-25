@@ -5,11 +5,16 @@
 int main()
 {
     setlocale(LC_ALL, "");
+    struct jogador_t {
+    int come_pao;
+    int alavanca_quebrada;
+    int game_on;
+};
+
+
     int opcao_menu = 0;
-    int come_pao = 0;
-    int game_on = 0;
-    int alavanca_quebrada = 0;
     int room1 = 0;
+    int morte_vitoria [2][1] = {0,0};
     enum opcoes_room1_e
     {
         chave = 1,
@@ -36,6 +41,8 @@ int main()
         printf("    1 - Novo Jogo   \n");
         printf("    2 - Sair\n");
         printf("================================\n");
+        printf("Viórias: %d  Mortes: %d\n", morte_vitoria[0][0], morte_vitoria[1][0]);
+        printf("================================\n");
         printf("Escolha uma opção -> \n");
         scanf("%i", &opcao_menu);
 
@@ -45,12 +52,9 @@ int main()
         switch (opcao_menu)
         {
         case 1:
-        {
-            game_on = 0;
-            alavanca_quebrada = 0;
-            come_pao = 0;
+        { struct jogador_t estado = {0, 0, 0};
 
-            while (game_on != 1)
+            while (estado.game_on != 1)
             {
 
                 system("clear");
@@ -75,7 +79,8 @@ int main()
                     getchar();
                     printf("Você come a chave. E morre lentamente de intoxicação por metais pesados.(Enter para continuar)\n");
                     getchar();
-                    game_on = 1;
+                    morte_vitoria[1][0]++;
+                    estado.game_on = 1;
                     system("clear");
                     printf("GAME OVER\nPressione ENTER para encerrar.");
                     getchar();
@@ -84,11 +89,11 @@ int main()
                 }
                 case alavanca:
                 {
-                    if (alavanca_quebrada == 0)
+                    if (estado.alavanca_quebrada == 0)
                     {
                         printf("A alavanca quebrou, que droga.\n");
                         getchar();
-                        alavanca_quebrada = 1;
+                        estado.alavanca_quebrada = 1;
                     }
                     else
                     {
@@ -99,24 +104,25 @@ int main()
                 break;
                 case pao:
                 {
-                    if (come_pao == 1)
+                    if (estado.come_pao == 1)
                     {
                         printf("Você já comeu o pão e encolheu, não pode comer de novo.\n");
                         getchar();
-                        come_pao = 2;
+                        estado.come_pao = 2;
                     }
-                    else if (come_pao == 0)
+                    else if (estado.come_pao == 0)
                     {
                         printf("Você come o pão.\nSeu corpo começa a encolher, você está virando um hobbit!\n");
                         printf("Você encolheu tanto que agora é possível passar pela fresta da porta e escapar!\n(Enter para continuar)\n");
                         getchar();
-                        come_pao = 1;
+                        estado.come_pao = 1;
                     }
-                    else if (come_pao == 2)
+                    else if (estado.come_pao == 2)
                     {
                         printf("Você insiste em comer o pão, você encolhe tanto que some!\n");
                         getchar();
-                        game_on = 1;
+                        estado.game_on = 1;
+                        morte_vitoria[1][0]++;
                         system("clear");
                         printf("GAME OVER\nPressione ENTER para encerrar.");
                         getchar();
@@ -126,7 +132,7 @@ int main()
                 break;
                 case porta:
                 {
-                    if (come_pao == 1)
+                    if (estado.come_pao == 1)
                     {
                         printf("Você passa pela fresta debaixo da porta\n");
                         getchar();
@@ -178,9 +184,10 @@ int main()
                             {
                                 printf("Arceus aceita seu sacrifício e te concede a liberdade.\nVocê escapa da sala branca e volta para casa, onde vive feliz para sempre.\n(ENTER para continuar)");
                                 getchar();
-                                game_on = 1;
+                                estado.game_on = 1;
                                 system("clear");
                                 printf("PARABÉNS! VOCÊ VENCEU!(Com todas as dívidas inclusas.)\nPressione ENTER para encerrar.");
+                                morte_vitoria[0][0]++;
                                 getchar();
                               //  opcao_menu = 2;
                             }
@@ -189,8 +196,9 @@ int main()
                             {
                                 printf("Arceus é muito poderoso e derrota você facilmente.\nVocê é lançado para fora da sala branca e cai em um precipício, morrendo na queda.\n(ENTER para continuar)");
                                 getchar();
-                                game_on = 1;
+                                estado.game_on = 1;
                                 system("clear");
+                                morte_vitoria[1][0]++;
                                 printf("GAME OVER\nPressione ENTER para encerrar.");
                                 getchar();
                              //   opcao_menu = 2;
@@ -200,8 +208,9 @@ int main()
                             {
                                 printf("Dar um soco em um deus nunca é uma boa ideia.\nArceus fica furioso e te transforma em pedra.\n(ENTER para continuar)");
                                 getchar();
-                                game_on = 1;
+                                estado.game_on = 1;
                                 system("clear");
+                                morte_vitoria[1][0]++;
                                 printf("GAME OVER\nPressione ENTER para encerrar.");
                                 getchar();
                              //   opcao_menu = 2;
@@ -223,8 +232,9 @@ int main()
                             system("clear");
                             printf("Após uma eternidade, seu corpo fraqueja, e você morre.\n(ENTER para continuar)");
                             getchar();
-                            game_on = 1;
+                            estado.game_on = 1;
                             system("clear");
+                            morte_vitoria[1][0]++;
                             printf("GAME OVER\nPressione ENTER para encerrar.");
                             getchar();
                           //  opcao_menu = 2;
@@ -237,8 +247,9 @@ int main()
                             system("clear");
                             printf("Você percebe que o xbox é na verdade um mímico, que te devora por inteiro.\nE uma mensagem aparece 'You Died, E sua fatura do cartão foi atualizada com IOF, juros e correção monetária.'\n(ENTER para continuar");
                             getchar();
-                            game_on = 1;
+                            estado.game_on = 1;
                             system("clear");
+                            morte_vitoria[1][0]++;
                             printf("GAME OVER\nPressione ENTER para encerrar.");
                             getchar();
                           //  opcao_menu = 2;
@@ -257,16 +268,17 @@ int main()
                             system("clear");
                             printf("Você usa a serra para cortar a porta, o escudo para se proteger dos cacos de madeira.\nE ao sair da sala branca, você se depara com um mundo pós-apocalíptico zumbi, onde você terá que usar a serra, escudo e a arma improvisada para se defender e sobreviver.\n\nBoa sorte!\n(ENTER para continuar)\n");
                             getchar();
-                            game_on = 1;
+                            estado.game_on = 1;
                             system("clear");
                             printf("PARABÉNS! VOCÊ VENCEU!(Mais ou menos né, agora é só sobreviver aos zumbis.)\nPressione ENTER para encerrar.");
+                            morte_vitoria[0][1]++;
                             getchar();
                           //  opcao_menu = 2;
                         }
                         break;
                         case fecha_game2:
                         {
-                            game_on = 1;
+                            estado.game_on = 1;
                             system("clear");
                             printf("Até logo!\nPressione ENTER para encerrar.");
                             getchar();
@@ -293,7 +305,7 @@ int main()
                 break;
                 case fecha_game:
                 {
-                    game_on = 1;
+                    estado.game_on = 1;
                     system("clear");
                     printf("Até logo!\nPressione ENTER para encerrar.");
                     getchar();
