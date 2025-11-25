@@ -36,18 +36,18 @@ int main()
     {
         system("clear");
         printf("================================\n");
-        printf("         Escape Room\n");
+        printf("         A Cabana\n");
         printf("================================\n");
         printf("    1 - Novo Jogo   \n");
         printf("    2 - Sair\n");
         printf("================================\n");
-        printf("Viórias: %d  Mortes: %d\n", morte_vitoria[0][0], morte_vitoria[1][0]);
+        printf("ViÃ³rias: %d  Mortes: %d\n", morte_vitoria[0][0], morte_vitoria[1][0]);
         printf("================================\n");
-        printf("Escolha uma opção -> \n");
+        printf("Escolha uma opÃ§Ã£o -> \n");
         scanf("%i", &opcao_menu);
 
         while (getchar() != '\n')
-            ; // limpar buffer, usar após os 'scanf' para limpar lixos e evitar problemas
+            ; // limpar buffer, usar apÃ³s os 'scanf' para limpar lixos e evitar problemas
 
         switch (opcao_menu)
         {
@@ -58,12 +58,12 @@ int main()
             {
 
                 system("clear");
-                printf("Você se encontra numa cabana. Diante de você existem 4 coisas.\n");
-                printf("Uma chave, uma alavanca, um pão, e uma porta.\n(ENTER para continuar)\n");
+                printf("VocÃª se encontra numa cabana. Diante de vocÃª existem 4 coisas.\n");
+                printf("Uma chave, uma alavanca, um pÃ£o, e uma porta.\n(ENTER para continuar)\n");
                 getchar();
                 system("clear");
-                printf("%i- Chave\n%i- Alavanca\n%i- Pão\n%i- Porta\n\n%i- Sair do jogo\n\n", chave, alavanca, pao, porta, fecha_game);
-                printf("O que você escolhe?\n(Digite o número correspondente a opção.)\n");
+                printf("%i- Chave\n%i- Alavanca\n%i- PÃ£o\n%i- Porta\n\n%i- Sair do jogo\n\n", chave, alavanca, pao, porta, fecha_game);
+                printf("O que vocÃª escolhe?\n(Digite o nÃºmero correspondente a opÃ§Ã£o.)\n");
                 scanf("%i", &room1);
                 system("clear");
 
@@ -75,9 +75,9 @@ int main()
     
                 case chave:
                 {
-                    printf("Você se vê consumido pela vontade de comer esta chave.\n");
+                    printf("VocÃª se vÃª consumido pela vontade de comer esta chave.\n");
                     getchar();
-                    printf("Você come a chave. E morre lentamente de intoxicação por metais pesados.(Enter para continuar)\n");
+                    printf("VocÃª come a chave. E morre lentamente de intoxicaÃ§Ã£o por metais pesados.(Enter para continuar)\n");
                     getchar();
                     morte_vitoria[1][0]++;
                     estado.game_on = 1;
@@ -97,7 +97,7 @@ int main()
                     }
                     else
                     {
-                        printf("A alavanca já está quebrada.\n");
+                        printf("A alavanca jÃ¡ estÃ¡ quebrada.\n");
                         getchar();
                     }
                 }
@@ -106,20 +106,20 @@ int main()
                 {
                     if (estado.come_pao == 1)
                     {
-                        printf("Você já comeu o pão e encolheu, não pode comer de novo.\n");
+                        printf("VocÃª jÃ¡ comeu o pÃ£o e encolheu, nÃ£o pode comer de novo.\n");
                         getchar();
                         estado.come_pao = 2;
                     }
                     else if (estado.come_pao == 0)
                     {
-                        printf("Você come o pão.\nSeu corpo começa a encolher, você está virando um hobbit!\n");
-                        printf("Você encolheu tanto que agora é possível passar pela fresta da porta e escapar!\n(Enter para continuar)\n");
+                        printf("VocÃª come o pÃ£o.\nSeu corpo comeÃ§a a encolher, vocÃª estÃ¡ virando um hobbit!\n");
+                        printf("VocÃª encolheu tanto que agora Ã© possÃ­vel passar pela fresta da porta e escapar!\n(Enter para continuar)\n");
                         getchar();
                         estado.come_pao = 1;
                     }
                     else if (estado.come_pao == 2)
                     {
-                        printf("Você insiste em comer o pão, você encolhe tanto que some!\n");
+                        printf("VocÃª insiste em comer o pÃ£o, vocÃª encolhe tanto que some!\n");
                         getchar();
                         estado.game_on = 1;
                         morte_vitoria[1][0]++;
@@ -134,20 +134,20 @@ int main()
                 {
                     if (estado.come_pao == 1)
                     {
-                        printf("Você passa pela fresta debaixo da porta\n");
+                        printf("VocÃª passa pela fresta debaixo da porta\n");
                         getchar();
                         int room2 = 0;
                         system("clear");
-                        printf("Após passar pela porta, você ainda se encontra trancado em uma sala branca.\n");
-                        printf("Diante de você, há 4 pedestais iluminados, cada um com um aparelho diferente.\n(ENTER para continuar)\n");
+                        printf("ApÃ³s passar pela porta, vocÃª ainda se encontra trancado em uma sala branca.\n");
+                        printf("Diante de vocÃª, hÃ¡ 4 pedestais iluminados, cada um com um aparelho diferente.\n(ENTER para continuar)\n");
                         getchar();
                         system("clear");
                         printf("Um nintendo switch 2, um playstation 5, um xbox series X, e um PC gamer.\n\n");
-                        printf("Uma placa na parede diz: 'A liberdade só sorri para quem escolhe com sabedoria... e com melhor custo-benefício.(ENTER para continuar)'\n\n");
+                        printf("Uma placa na parede diz: 'A liberdade sÃ³ sorri para quem escolhe com sabedoria... e com melhor custo-benefÃ­cio.(ENTER para continuar)'\n\n");
                         getchar();
                         system("clear");
-                        printf("E outra placa, escrita à mão com canetinha Bic, acrescenta: 'Em caso de escolha errada, sua fatura do cartão será atualizada com IOF, juros e correção monetária. Ass: Receita Federal.'\n");
-                        printf("Qual é a sua escolha para escapar vivo e com o nome limpo?(ENTER para continuar)\n");
+                        printf("E outra placa, escrita Ã  mÃ£o com canetinha Bic, acrescenta: 'Em caso de escolha errada, sua fatura do cartÃ£o serÃ¡ atualizada com IOF, juros e correÃ§Ã£o monetÃ¡ria. Ass: Receita Federal.'\n");
+                        printf("Qual Ã© a sua escolha para escapar vivo e com o nome limpo?(ENTER para continuar)\n");
                         getchar();
                         system("clear");
                         printf("Escolha: \n%i - Nintendo Switch 2\n%i - Playstation 5\n%i - Xbox Series X\n%i - PC\n%i - Sair do jogo.\n", nintendo, ps5, xbox, pc, fecha_game2);
@@ -159,14 +159,14 @@ int main()
                         {
                         case nintendo:
                         {
-                            printf("Você pega o nintendo switch.\nO peso no seu bolso cresce.\nUma mensagem vinda do teto diz:\n\n'R$ 4.999,99 em um console que roda Pokemon com queda de FPS. Parabéns meu guerreiro.'\n(ENTER para continuar)");
+                            printf("VocÃª pega o nintendo switch.\nO peso no seu bolso cresce.\nUma mensagem vinda do teto diz:\n\n'R$ 4.999,99 em um console que roda Pokemon com queda de FPS. ParabÃ©ns meu guerreiro.'\n(ENTER para continuar)");
                             getchar();
                             system("clear");
-                            printf("Você ignora o aviso e começa a jogar Pokemon.\nDepois de algumas horas, Arceus, o deus dos pokemons, aparece diante de você.\n\n");
+                            printf("VocÃª ignora o aviso e comeÃ§a a jogar Pokemon.\nDepois de algumas horas, Arceus, o deus dos pokemons, aparece diante de vocÃª.\n\n");
                             getchar();
                             system("clear");
-                            printf("O que você faz?");
-                            printf("\n1 - Pedir perdão pelos seus pecados e oferecer o console em sacrifício a Arceus.\n2 - Desafiar Arceus para uma batalha pokemon.\n3 - Dar um soco em Arceus.\n");
+                            printf("O que vocÃª faz?");
+                            printf("\n1 - Pedir perdÃ£o pelos seus pecados e oferecer o console em sacrifÃ­cio a Arceus.\n2 - Desafiar Arceus para uma batalha pokemon.\n3 - Dar um soco em Arceus.\n");
                             int escolha_arceus = 0;
                             scanf("%i", &escolha_arceus);
                             while (getchar() != '\n')
@@ -182,11 +182,11 @@ int main()
                             {
                             case perdao:
                             {
-                                printf("Arceus aceita seu sacrifício e te concede a liberdade.\nVocê escapa da sala branca e volta para casa, onde vive feliz para sempre.\n(ENTER para continuar)");
+                                printf("Arceus aceita seu sacrifÃ­cio e te concede a liberdade.\nVocÃª escapa da sala branca e volta para casa, onde vive feliz para sempre.\n(ENTER para continuar)");
                                 getchar();
                                 estado.game_on = 1;
                                 system("clear");
-                                printf("PARABÉNS! VOCÊ VENCEU!(Com todas as dívidas inclusas.)\nPressione ENTER para encerrar.");
+                                printf("PARABÃ‰NS! VOCÃŠ VENCEU!(Com todas as dÃ­vidas inclusas.)\nPressione ENTER para encerrar.");
                                 morte_vitoria[0][0]++;
                                 getchar();
                               //  opcao_menu = 2;
@@ -194,7 +194,7 @@ int main()
                             break;
                             case batalha:
                             {
-                                printf("Arceus é muito poderoso e derrota você facilmente.\nVocê é lançado para fora da sala branca e cai em um precipício, morrendo na queda.\n(ENTER para continuar)");
+                                printf("Arceus Ã© muito poderoso e derrota vocÃª facilmente.\nVocÃª Ã© lanÃ§ado para fora da sala branca e cai em um precipÃ­cio, morrendo na queda.\n(ENTER para continuar)");
                                 getchar();
                                 estado.game_on = 1;
                                 system("clear");
@@ -206,7 +206,7 @@ int main()
                             break;
                             case soco:
                             {
-                                printf("Dar um soco em um deus nunca é uma boa ideia.\nArceus fica furioso e te transforma em pedra.\n(ENTER para continuar)");
+                                printf("Dar um soco em um deus nunca Ã© uma boa ideia.\nArceus fica furioso e te transforma em pedra.\n(ENTER para continuar)");
                                 getchar();
                                 estado.game_on = 1;
                                 system("clear");
@@ -218,7 +218,7 @@ int main()
                             break;
                             default:
                             {
-                                printf("Opção inválida. Pressione ENTER.\n");
+                                printf("OpÃ§Ã£o invÃ¡lida. Pressione ENTER.\n");
                                 getchar();
                             }
                             break;
@@ -227,10 +227,10 @@ int main()
                         break;
                         case ps5:
                         {
-                            printf("Você liga o playstation, uma tela de atualização aparece.\nVocê espera por minutos, horas, dias...\n(ENTER para continuar)");
+                            printf("VocÃª liga o playstation, uma tela de atualizaÃ§Ã£o aparece.\nVocÃª espera por minutos, horas, dias...\n(ENTER para continuar)");
                             getchar();
                             system("clear");
-                            printf("Após uma eternidade, seu corpo fraqueja, e você morre.\n(ENTER para continuar)");
+                            printf("ApÃ³s uma eternidade, seu corpo fraqueja, e vocÃª morre.\n(ENTER para continuar)");
                             getchar();
                             estado.game_on = 1;
                             system("clear");
@@ -242,10 +242,10 @@ int main()
                         break;
                         case xbox:
                         {
-                            printf("Você tenta ligar o xbox, você percebe que é só uma caixa com um X no meio.\n(ENTER para continuar)");
+                            printf("VocÃª tenta ligar o xbox, vocÃª percebe que Ã© sÃ³ uma caixa com um X no meio.\n(ENTER para continuar)");
                             getchar();
                             system("clear");
-                            printf("Você percebe que o xbox é na verdade um mímico, que te devora por inteiro.\nE uma mensagem aparece 'You Died, E sua fatura do cartão foi atualizada com IOF, juros e correção monetária.'\n(ENTER para continuar");
+                            printf("VocÃª percebe que o xbox Ã© na verdade um mÃ­mico, que te devora por inteiro.\nE uma mensagem aparece 'You Died, E sua fatura do cartÃ£o foi atualizada com IOF, juros e correÃ§Ã£o monetÃ¡ria.'\n(ENTER para continuar");
                             getchar();
                             estado.game_on = 1;
                             system("clear");
@@ -257,20 +257,20 @@ int main()
                         break;
                         case pc:
                         {
-                            printf("Você tenta ligar o PC mas ele não tem configurações muito boas.\n(ENTER para continuar)");
+                            printf("VocÃª tenta ligar o PC mas ele nÃ£o tem configuraÃ§Ãµes muito boas.\n(ENTER para continuar)");
                             getchar();
                             system("clear");
-                            printf("Você decide desmontar o PC por inteiro e utilizar as peças para sair da sala branca.\n(ENTER para continuar)");
+                            printf("VocÃª decide desmontar o PC por inteiro e utilizar as peÃ§as para sair da sala branca.\n(ENTER para continuar)");
                             getchar();
                             system("clear");
-                            printf("Com as peças você faz o seguinte:\nCom a ventoinha você cria uma serra.\nO gabinete serve como escudo.\nA fonte vira uma arma improvisada.\n(ENTER para continuar)");
+                            printf("Com as peÃ§as vocÃª faz o seguinte:\nCom a ventoinha vocÃª cria uma serra.\nO gabinete serve como escudo.\nA fonte vira uma arma improvisada.\n(ENTER para continuar)");
                             getchar();
                             system("clear");
-                            printf("Você usa a serra para cortar a porta, o escudo para se proteger dos cacos de madeira.\nE ao sair da sala branca, você se depara com um mundo pós-apocalíptico zumbi, onde você terá que usar a serra, escudo e a arma improvisada para se defender e sobreviver.\n\nBoa sorte!\n(ENTER para continuar)\n");
+                            printf("VocÃª usa a serra para cortar a porta, o escudo para se proteger dos cacos de madeira.\nE ao sair da sala branca, vocÃª se depara com um mundo pÃ³s-apocalÃ­ptico zumbi, onde vocÃª terÃ¡ que usar a serra, escudo e a arma improvisada para se defender e sobreviver.\n\nBoa sorte!\n(ENTER para continuar)\n");
                             getchar();
                             estado.game_on = 1;
                             system("clear");
-                            printf("PARABÉNS! VOCÊ VENCEU!(Mais ou menos né, agora é só sobreviver aos zumbis.)\nPressione ENTER para encerrar.");
+                            printf("PARABÃ‰NS! VOCÃŠ VENCEU!(Mais ou menos nÃ©, agora Ã© sÃ³ sobreviver aos zumbis.)\nPressione ENTER para encerrar.");
                             morte_vitoria[0][1]++;
                             getchar();
                           //  opcao_menu = 2;
@@ -280,7 +280,7 @@ int main()
                         {
                             estado.game_on = 1;
                             system("clear");
-                            printf("Até logo!\nPressione ENTER para encerrar.");
+                            printf("AtÃ© logo!\nPressione ENTER para encerrar.");
                             getchar();
                           //  opcao_menu = 2;
                             break;
@@ -288,7 +288,7 @@ int main()
                         break;
                         default:
                         {
-                            printf("Opção inválida. Pressione ENTER. \n");
+                            printf("OpÃ§Ã£o invÃ¡lida. Pressione ENTER. \n");
                             getchar();
                         }
                         break;
@@ -297,7 +297,7 @@ int main()
                     }
                     else
                     {
-                        printf("A porta está trancada.\n");
+                        printf("A porta estÃ¡ trancada.\n");
                         getchar();
                         break;
                     }
@@ -307,13 +307,13 @@ int main()
                 {
                     estado.game_on = 1;
                     system("clear");
-                    printf("Até logo!\nPressione ENTER para encerrar.");
+                    printf("AtÃ© logo!\nPressione ENTER para encerrar.");
                     getchar();
                   //  opcao_menu = 2;
                     break;
                 }
                 default:
-                    printf("Opção inválida. Pressione ENTER. \n");
+                    printf("OpÃ§Ã£o invÃ¡lida. Pressione ENTER. \n");
                     getchar();
                 }
                 getchar();
@@ -323,11 +323,11 @@ int main()
         case 2:
         {
             system("clear");
-            printf("Até logo!\n");
+            printf("AtÃ© logo!\n");
         }
         break;
         default:
-            printf("Opção inválida. Pressione ENTER.\n");
+            printf("OpÃ§Ã£o invÃ¡lida. Pressione ENTER.\n");
             getchar();
         }
     }
